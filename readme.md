@@ -1,3 +1,5 @@
+February 2020
+
 Temat projektu: porównanie i symulacje ruchów prostoliniowych i rzutów.
 
 Jest podzielony na 4 części: 
