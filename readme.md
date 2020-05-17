@@ -1,4 +1,4 @@
-February 2020
+December 2019
 
 Temat projektu: porównanie i symulacje ruchów prostoliniowych i rzutów.
 
