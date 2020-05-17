@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="author" content="Maciej Domagalski"/>
+	<title>Ruch</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+	<header>
+		<h1>Rzuty - porównanie</h1>
+	</header>
+	<br/>
+	
+	<nav>
+		<ul class="nav-main">
+			<li><a href="index.html">Strona główna</a></li>
+			<li><a href="prost_main.html">Ruch prostoliniowy</a></li>
+			<li><a href="rzuty_main.html" class="active">Rzuty</a></li>
+			<li class="right"><a href="dok.html">Dokumentacja</a></li>	
+		</ul>
+		<br/>
+		
+		<ul class="nav-prost">
+			<li><a href="rzuty_main.html">Podstrona główna</a></li>
+			<li><a href="rzuty_por.html" class="active">Porównanie</a></li>
+			<li><a href="rzuty_sym.html">Symulacja</a></li>
+		</ul>
+	</nav>
+	
+	<section id="porownanie">
+		<h3>Porównanie rzutów</h3>
+		<table>
+			<tr class="nagl">
+				<th>Rzut</th>
+				<th>Wysokość <em>y</em></th>
+				<th>Wysokość maksymalna <em>y<sub>max</sub></em></th>
+				<th>Prędkość <em>v</em></th>
+				<th>Zasięg <em>Δx</em></th>
+				<th>Całkowity czas ruchu <em>t<sub>max</sub></em></th>
+			</tr>
+			<tr>
+				<th>Spadek swobodny</th>
+				<td><em>y<sub>0</sub></em> - <em>gt</em><sup>2</sup>/2</td>
+				<td><em>y<sub>0</sub></em> (wys. początkowa)</td>
+				<td><em>gt</em></td>
+				<td>0 (nie dotyczy)</td>
+				<td>(2<em>h</em>/<em>g</em>)<sup>1/2</sup></td>
+			</tr>
+			<tr>
+				<th>Poziomy</th>
+				<td><em>y<sub>0</sub></em> - <em>gt</em><sup>2</sup>/2</td>
+				<td><em>y<sub>0</sub></em> (wys. początkowa)</td>
+				<td><em>gt</em><sup>2</sup>/2</td>
+				<td><em>v<sub>0</sub>t</em></td>
+				<td>(2<em>h</em>/<em>g</em>)<sup>1/2</sup></td>
+			</tr>
+			<tr>
+				<th>Pionowy w dół</th>
+				<td><em>y<sub>0</sub></em> - (<em>v<sub>0</sub>t</em> + <em>gt</em><sup>2</sup>/2)</td>
+				<td><em>y<sub>0</sub></em> (wys. początkowa)</td>
+				<td><em>v<sub>0</sub></em> + <em>gt</em></td>
+				<td>0 (nie dotyczy)</td>
+				<td>(2<em>h</em>/<em>g</em>)<sup>1/2</sup></td>
+			</tr>
+			<tr>
+				<th>Pionowy w górę</th>
+				<td><em>y<sub>0</sub></em> + (<em>v<sub>0</sub>t</em> - <em>gt</em><sup>2</sup>/2)</td>
+				<td><em>y<sub>0</sub></em> + <em>v<sub>0</sub></em><sup>2</sup> / 2<em>g</em></td>
+				<td><em>v<sub>0</sub></em> - <em>gt</em></td>
+				<td>0 (nie dotyczy)</td>
+				<td>2<em>v<sub>0</sub></em>/<em>g</em></td>
+			</tr>
+			<tr>
+				<th>Ukośny</th>
+				<td><em>v<sub>0</sub>t</em>sin(<em>ϕ</em>) - <em>gt</em><sup>2</sup>/2</td>
+				<td><em>v<sub>0</sub></em><sup>2</sup>sin<sup>2</sup>(<em>ϕ</em>)/2<em>g</em></td>
+				<td>pozioma <em>v<sub>0</sub></em> <br/> pionowa <em>v<sub>0</sub>t</em>sin(<em>ϕ</em>) - <em>gt</em></td>
+				<td><em>v<sub>0</sub></em>sin(2<em>ϕ</em>)/<em>g</em></td>
+				<td>2<em>v<sub>0</sub></em>sin(<em>ϕ</em>)/<em>g</em></td>
+			</tr>
+		</table>
+	</section>	
+	<br/>
+	
+	<section id="zrodlo">
+		<h2>&nbsp;</h2>
+		<a href="https://pl.wikipedia.org/wiki/Rzut_uko%C5%9Bny_(fizyka)">Rzut ukośny</a><br/>
+		<a href="https://pl.wikipedia.org/wiki/Rzut_pionowy_w_g%C3%B3r%C4%99">Rzut pionowy</a><br/>
+		<a href="https://pl.wikipedia.org/wiki/Rzut_poziomy_(fizyka)">Rzut poziomy</a><br/>
+		<a href="http://fizyka.dk/teoria/kinematyka/rzut-pionowy-rzut-poziomy-rzut-ukosny/rzut-pionowy-rzut-poziomy-rzut-ukosny-definicje-twierdzenia-wzory">Rzuty - informacje i wzory</a><br/>
+		<a href="https://www.naukowiec.org/wiedza/fizyka/spadek-swobodny_633.html">Spadek swobodny - dodatkowe wzory</a><br/>
+		<a href="https://www.naukowiec.org/wiedza/fizyka/rzut-poziomy_631.html">Rzut poziomy - dodatkowe wzory</a><br/>
+		<a href="http://www.fizykon.org/kinematyka/rzuty_rzut_ukosny.htm">Rzut ukośny - dodatkowe wzory</a>
+	</section>
+	
+	<hr/>
+	<footer>
+		<p>by Maciej Domagalski</p>
+	</footer>
+</body>
+</html>

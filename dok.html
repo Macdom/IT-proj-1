@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="author" content="Maciej Domagalski"/>
+	<title>Ruch</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+	<header>
+		<h1>Dokumentacja</h1>
+	</header>
+	<br/>
+	
+	<nav class="main">
+		<ul class="nav-main">
+			<li><a href="index.html">Strona główna</a></li>
+			<li><a href="prost_main.html">Ruch prostoliniowy</a></li>
+			<li><a href="rzuty_main.html">Rzuty</a></li>
+			<li class="right"><a href="dok.html" class="active">Dokumentacja</a></li>
+		</ul>
+	</nav>
+	
+	<section id="wstep">
+		<h3>Informacje wstępne</h3>
+		<ul>
+			<li><strong>Tematem projektu są porównania i symulacje ruchów prostoliniowych i rzutów</strong></li>
+			<li>Zdjęcia: google grafika</li>
+			<li>Symulacje zrealizowane przy użyciu JavaScript oraz Canvas</li>
+			<li>Testy były wykonywane w przeglądarce Mozilla Firefox</li>
+		</ul>
+	</section>
+	
+	<section id="struktura">
+		<h3>Struktura plików i katalogów</h3>
+		<ul>
+			<li>index.html (strona główna)</li>
+			<li>prost_main.html (wprowadzenie do ruchów prostoliniowych)</li>
+			<li>prost_por.html (porównanie ruchów prostoliniowych)</li>
+			<li>prost_sym.html (symulacje ruchów prostoliniowych)</li>
+			<li>rzuty_main.html (wprowadzenie do rzutów)</li>
+			<li>rzuty_por.html (porównanie rzutów)</li>
+			<li>rzuty_sym.html (symulacje rzutów)</li>
+			<li>dok.html (dokumentacja którą Pan właśnie czyta)</li>
+			<li>script_prost.js (skrypt obsługujący symulacje i wyświetlanie w pliku prost_sym.html)</li>
+			<li>script_rzuty.js (skrypt obsługujący symulacje i wyświetlanie w pliku rzuty_sym.html)</li>
+			<li>style.css (arkusz styli do wszystkich plików html)</li>
+			<li> folder /media (użyte w projekcie zdjęcia)</li>
+		</ul>
+	</section>
+	
+	<section id="dok">
+		<h3>Funkcje</h3>
+		
+		<h4>Plik <em>script_prost.js</em> - realizacja symulacji ruchów prostoliniowych</h4>
+		<table>
+			<tr class="nagl">
+				<th>Funkcja</th>
+				<th>Wywołane inne funkcje</th>
+				<th>Opis</th>
+			</tr>
+			
+			<tr>
+				<td><em>czekaj(czas)</em></td>
+				<td><em>brak</em></td>
+				<td>Zatrzymuje działanie programu na podaną ilość milisekund. Stosowana do animacji.</td>
+			</tr>	
+			
+			<tr>
+				<td><em>ukryj()</em></td>
+				<td><em>brak</em></td>
+				<td>Ukrywa wszystkie canvasy i przywraca ustawienia domyślne.</td>
+			</tr>
+			
+			<tr>
+				<td><em>pokaz()</em></td>
+				<td><em>ukryj</em></td>
+				<td>Wyświetla i ustawia canvasy potrzebne w odpowiednim przypadku.<br/>
+					Nie pokazuje wykresów, których wartości są równe 0.<br/> 
+					Działa w zależności od wartości elementu select o id <em>wybor</em>.</td>
+			</tr>
+			
+			<tr>
+				<td><em>draw_OX(context)</em></td>
+				<td><em>brak</em></td>
+				<td>Przygotowuje oś OX w podanym canvasie - rysuje oś (linię i strzałkę) oraz oznaczenie (literę <em>t</em> - czas).</td>
+			</tr>
+			
+			<tr>
+				<td><em>draw_OY(context)</em></td>
+				<td><em>brak</em></td>
+				<td>Przygotowuje oś OY w podanym canvasie - rysuje oś (linię i strzałkę) oraz oznaczenie. <br/>
+					W zależności od wartości elementu select o id <em>wybor</em> jest to <em>x</em>, <em>v</em> lub <em>a</em>.</td>
+			</tr>
+			
+			<tr>
+				<td><em>clear_canvas(context)</em></td>
+				<td><em>draw_OX <br/> draw_OY</em></td>
+				<td>Przygotowuje dany canvas - wypełnia go białym prostokątem, a następnie rysuje osie.</td>
+			</tr>
+			
+			<tr>
+				<td><em>draw(context,x0,v0,a)</em></td>
+				<td><em>clear_canvas<br/> czekaj</em></td>
+				<td>Najważniejsza z funkcji, służąca do rysowania wykresów.<br/>
+					Na początku (w zależności od <em>wybor</em>) zeruje odpowiednie wartości <em>v<sub>0</sub></em> i <em>a</em>, gdy nie są potrzebne.<br/>
+					Następnie przesuwa na punkt zerowy wykresu (poziomo początek układu współrzędnych, pionowo, wstępne <em>y<sub>0</sub></em>, <em>v<sub>0</sub></em> lub <em>a</em>).<br/>
+					Następnie w pętli rysuje po jednej linii o szerokości 1 piksela, uprzednio wyliczając położenie punktu w osi pionowej.<br/>
+					Wykorzystuje do tego uniwersalny wzór <code>y = 310 - (x0 + v0 * t + a * t*t / 2);</code>. <br/>
+					Odejmuję od 310, ponieważ canvas za punkt (0,0) przyjmuje lewy górny róg (a nie lewy dolny, jak w układzie współrzędnych).<br/>
+					Zerowane są w nim odpowiednie wartości, aby zgadzał się z odpowiednimi wzorami ze strony <em>prost_por.html</em>.<br/>
+					W końcu zatrzymuje działanie programu na 10 milisekund, aby sprawić wrażenie animacji.</td>
+			</tr>
+		</table><br/>
+		
+		<h4>Plik <em>script_rzuty.js</em> - realizacja symulacji rzutów</h4>
+		<table>
+			<tr class="nagl">
+				<th>Funkcja</th>
+				<th>Wywołane inne funkcje</th>
+				<th>Opis</th>
+			</tr>
+			
+			<tr>
+				<td><em>update(suwak, val)</em></td>
+				<td><em>brak</em></td>
+				<td>Zmienia wartość okienka przy danym suwaku, aby przedstawiało jego wartość.</td>
+			</tr>
+			
+			<tr>
+				<td><em>czekaj(czas)</em></td>
+				<td><em>brak</em></td>
+				<td>Zatrzymuje działanie programu na podaną ilość milisekund. Stosowana do animacji.</td>
+			</tr>
+
+			
+			<tr>
+				<td><em>draw_OX(context)</em></td>
+				<td><em>brak</em></td>
+				<td>Przygotowuje oś OX w podanym canvasie - rysuje oś (linię i strzałkę) oraz oznaczenie (literę <em>x</em> - odległość).</td>
+			</tr>
+			
+			<tr>
+				<td><em>draw_OY(context)</em></td>
+				<td><em>brak</em></td>
+				<td>Przygotowuje oś OY w podanym canvasie - rysuje oś (linię i strzałkę) oraz oznaczenie (literę <em>y</em> - wysokość).	
+			</tr>
+			
+			<tr>
+				<td><em>ukryj()</em></td>
+				<td><em>brak</em></td>
+				<td>Ukrywa wszystkie suwaki, canvasy i przyciski. Przywraca ustawienia domyślne.</td>
+			</tr>
+
+			<tr>
+				<td><em>clear_canvas()</em></td>
+				<td><em>draw_OX <br/> draw_OY</em></td>
+				<td>Przygotowuje canvas - wypełnia go białym prostokątem, a następnie rysuje osie.</td>
+			</tr>	
+
+			<tr>
+				<td><em>pokaz()</em></td>
+				<td><em>ukryj</em></td>
+				<td>Wyświetla i ustawia suwaki, canvas i przycisk potrzebne w odpowiednim przypadku.<br/>
+		  		Działa w zależności od wartości elementu select o id <em>wybor</em>.</td>
+			</tr>	
+
+			<tr>
+				<td><em>draw(w, p, k)</em></td>
+				<td><em>clear_canvas<br/> jedna z poniższych funkcji</em></td>
+				<td>Najważniejsza z funkcji, służąca do wyboru funkcji do rysowania wykresu.<br/>
+					W zależności od elementu select o id <em>wybor</em> ustawia kolor linii i wywołuje odpowiednią funkcję. <br/>
+					Każda z poniższych funkcji działa na podobnej zasadzie - najpierw ustawia początkową wysokość, a następnie tworzy pętlę. <br/>
+					Rysuje po jednej linii o szerokości 1 piksela, uprzednio wyliczając położenie punktu w osi pionowej.<br/>
+					Pionowo się nie przemieszcza wcale i pozostaje w miejscu lub rusza się wraz z czasem <em>t</em> (zależy od konkretnej funkcji).<br/>
+					Na końcu pętli zatrzymuje działanie na daną ilość milisekund, aby sprawić wrażenie ruchu.<br/>
+					W końcu czyści białym prostokątem linie, które spadły poniżej osi OX.</td>
+
+			</tr>
+
+			<tr>
+				<td><em>rysuj_ss(w)</em></td>
+				<td><em>czekaj</em></td>
+				<td>Funkcja do rysowania trajektorii spadku swobodnego z danej wysokości.<br/>
+					Poziomu stoi w miejcu (na środku wykresu). Zatrzymanie trwa 65 milisekund.</td>
+			</tr>
+			
+			<tr>
+				<td><em>rysuj_pid(w, p)</em></td>
+				<td><em>czekaj</em></td>
+				<td>Funkcja do rysowania trajektorii rzutu w dół z danej wysokości o danej prędkości początkowej.<br/>
+					Poziomo stoi w miejscu (na środku wykresu). Zatrzymanie trwa 65 milisekund.</td>
+			</tr>
+			
+			<tr>
+				<td><em>rysuj_pig(w, p)</em></td>
+				<td><em>czekaj</em></td>
+				<td>Funkcja do rysowania trajektorii rzutu w górę z danej wysokości o danej prędkości początkowej.<br/>
+					Poziomo stoi w miejscu (na środku wykresu). Zatrzymanie trwa 65 milisekund.<br/>
+					Niestety funkcja <strong>nie działa poprawnie</strong> z powodu dziwnego błędu, którego nie jestem w stanie naprawić.</td>
+			</tr>
+			
+			<tr>
+				<td><em>rysuj_po(w, p)</em></td>
+				<td><em>czekaj</em></td>
+				<td>Funkcja do rysowania trajektorii rzutu poziomego z danej wysokości o danej prędkości początkowej.<br/>
+					Poziomo zaczyna na środku wykresu i przesuwa się razem z czasem. Zatrzymanie trwa 4 milisekundy.<br/>
+					Aby wykresy działały i wyglądały <em>sensownie</em>, musiałem trochę <em>pokombinować</em> z wartościami (do wglądu w kodzie).</td>
+			</tr>
+			
+			<tr>
+				<td><em>rysuj_u(p, k)</em></td>
+				<td><em>czekaj</em></td>
+				<td>Funkcja do rysowania trajektorii rzutu ukośnego z ziemi o danej prędkości początkowej i kątem między wektorem prędkości a poziomem.<br/>
+					Poziomo zaczyna na środku wykresu i przesuwa się razem z czasem. Zatrzymanie trwa 4 milisekundy.<br/>
+					Aby wykresy działały i wyglądały <em>sensownie</em>, musiałem trochę <em>pokombinować</em> z wartościami (do wglądu w kodzie).</td>
+			</tr>
+		</table>	
+	</section>
+</body>

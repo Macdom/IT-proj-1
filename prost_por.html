@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="author" content="Maciej Domagalski"/>
+	<title>Ruch</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+	<header>
+		<h1>Ruch prostoliniowy - porównanie</h1>
+	</header>
+	<br/>
+	
+	<nav>
+		<ul class="nav-main">
+			<li><a href="index.html">Strona główna</a></li>
+			<li><a href="prost_por.html" class="active">Ruch prostoliniowy</a></li>
+			<li><a href="rzuty_main.html">Rzuty</a></li>
+			<li class="right"><a href="dok.html">Dokumentacja</a></li>			
+		</ul>
+		<br/>
+		
+		<ul class="nav-prost">
+			<li><a href="prost_main.html">Podstrona główna</a></li>
+			<li><a href="prost_por.html" class="active">Porównanie</a></li>
+			<li><a href="prost_sym.html">Symulacje</a></li>
+		</ul>
+	</nav>
+	
+	<section id="porownanie">
+		<h3>Porównanie ruchów prostoliniowych</h3>
+		<table>
+			<tr class="nagl">
+				<th>Ruch</th>
+				<th>Przemieszczenie <em>x</em></th>
+				<th>Prędkość <em>v</em></th>
+				<th>Przyspieszenie <em>a</em></th>
+			</tr>
+			<tr>
+				<th>Spoczynek (brak ruchu)</th>
+				<td><em>x<sub>0</sub></em> (const)</td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<th>Jednostajny</th>
+				<td><em>x<sub>0</sub></em> + <em>vt</em></td>
+				<td><em>v<sub>0</sub></em> (const)</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<th>Jednostajnie przyspieszony</th>
+				<td><em>x<sub>0</sub></em> + <em>v<sub>0</sub>t</em> + <em>at</em><sup>2</sup>/2</td>
+				<td><em>v<sub>0</sub></em> + <em>at</em></td>
+				<td><em>a</em> (const)</td>
+			</tr>
+		</table>
+	</section>	
+	<br/>
+	
+	<section id="zrodlo">
+		<h3>Źródła</h3>
+		<a href="https://pl.wikipedia.org/wiki/Ruch_jednostajny_prostoliniowy">Ruch jednostajny</a><br/>
+		<a href="https://pl.wikipedia.org/wiki/Ruch_jednostajnie_przyspieszony">Ruch jednostajnie przyspieszony</a><br/>
+		<a href="https://pl.wikipedia.org/wiki/Pr%C4%99dko%C5%9B%C4%87">Prędkość</a><br/>
+		<a href="https://pl.wikipedia.org/wiki/Przyspieszenie">Przyspieszenie</a><br/>
+	</section>
+	
+	<hr/>
+	<footer>
+		<p>by Maciej Domagalski</p>
+	</footer>
+</body>
+</html>

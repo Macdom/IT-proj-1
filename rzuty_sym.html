@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="author" content="Maciej Domagalski"/>
+	<title>Ruch</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script src="script_rzuty.js" defer></script>
+</head>
+
+<body>
+	<header>
+		<h1>Rzuty - symulacje</h1>
+	</header>
+	<br/>
+	
+	<nav>
+		<ul class="nav-main">
+			<li><a href="index.html">Strona główna</a></li>
+			<li><a href="prost_main.html">Ruch prostoliniowy</a></li>
+			<li><a href="rzuty_main.html" class="active">Rzuty</a></li>
+			<li class="right"><a href="dok.html">Dokumentacja</a></li>	
+		</ul>
+		<br/>
+		
+		<ul class="nav-prost">
+			<li><a href="rzuty_main.html">Podstrona główna</a></li>
+			<li><a href="rzuty_por.html">Porównanie</a></li>
+			<li><a href="rzuty_sym.html" class="active">Symulacja</a></li>
+		</ul>
+	</nav>
+	
+	<section id="wybor">
+		<h2>&nbsp;</h2>	
+		<form id="wyborForm">
+			<p>Wybierz rodzaj rzutu:</p>
+			<select name="rzut" size="1" id="rzut">
+				<option value="0">Wybierz</option>
+				<option value="ss">Spadek swobodny</option>
+				<option value="pid">Pionowy w dół</option>
+				<option value="pig">Pionowy w górę</option>
+				<option value="po">Poziomy</option>
+				<option value="u">Ukośny</option>
+			</select>
+			<input type="button" value="wybierz" onclick="pokaz()" />
+		</form>
+	</section>
+	<hr/>
+	
+	<section id="symulacje">
+		<h2>&nbsp;</h2>
+		
+		<form name="parametry">
+			<span id="wys" class="clearfix">	
+				<label for="y0">Wysokość początkowa <em>y<sub>0</sub></em></label><br/>
+				<input type="text" class="display" size="1" id="y0_value" value="" disabled />m<br/>
+				1<input name="y0" id="y0" type="range" min="1" max="200" value="100" onchange="update('y0_value',this.value);"/>200<br/>
+			</span>
+			
+			<span id="pred" class="clearfix">
+				<label for="v0">Prędkość początkowa <em>v<sub>0</sub></em></label><br/>
+				<input type="text" class="display"  size="1" id="v0_value" value="" disabled />m/s<br/>
+				1<input name="v0" id="v0" type="range" min="1" max="30" value="15" onchange="update('v0_value',this.value);"/>30<br/>
+			</span>
+			
+			<span id="kat" class="clearfix">
+				<label for="fi">Kąt rzutu <em>ϕ</em></label><br/>
+				<input type="text" class="display" size="1" id="fi_value" value="" disabled />stopni<br/>
+				1<input name="fi" id="fi" type="range" min="1" max="45" value="22" onchange="update('fi_value',this.value);"/>45
+			</span>	
+		</form>
+		
+		<span id="can" class="clearfix">
+			Kolorem <span class="green">zielonym</span> przedstawione zostanie wznoszenie, a <strong>niebieskim</strong> - opadanie.<br/>
+			<canvas id="rzutCanv" width="610" height="310"></canvas><br/>
+			<button id="rysuj" onclick="rysuj(document.getElementById('y0').value,document.getElementById('v0').value,document.getElementById('fi').value);">Rysuj trajektorię</button>
+		</span>	
+	</section><br/>
+	<hr/>
+	<section id="zrodlo">
+		<h2>&nbsp;</h2>
+		<a href="https://pl.wikipedia.org/wiki/Rzut_uko%C5%9Bny_(fizyka)">Rzut ukośny</a><br/>
+		<a href="https://pl.wikipedia.org/wiki/Rzut_pionowy_w_g%C3%B3r%C4%99">Rzut pionowy</a><br/>
+		<a href="https://pl.wikipedia.org/wiki/Rzut_poziomy_(fizyka)">Rzut poziomy</a><br/>
+		<a href="http://fizyka.dk/teoria/kinematyka/rzut-pionowy-rzut-poziomy-rzut-ukosny/rzut-pionowy-rzut-poziomy-rzut-ukosny-definicje-twierdzenia-wzory">Rzuty - informacje i wzory</a><br/>
+		<a href="https://www.naukowiec.org/wiedza/fizyka/spadek-swobodny_633.html">Spadek swobodny - dodatkowe wzory</a><br/>
+		<a href="https://www.naukowiec.org/wiedza/fizyka/rzut-poziomy_631.html">Rzut poziomy - dodatkowe wzory</a><br/>
+		<a href="http://www.fizykon.org/kinematyka/rzuty_rzut_ukosny.htm">Rzut ukośny - dodatkowe wzory</a>
+	</section>
+	<hr/>
+	<footer>
+		<p>by Maciej Domagalski</p>
+	</footer>
+</body>
+</html>

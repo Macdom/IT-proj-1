@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="author" content="Maciej Domagalski"/>
+	<title>Ruch</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script src="script_prost.js" defer></script>
+</head>
+
+<body>
+	<header>
+		<h1>Ruch prostoliniowy - symulacje</h1>
+	</header>
+	<br/>
+	
+	<nav>
+		<ul class="nav-main">
+			<li><a href="index.html">Strona główna</a></li>
+			<li><a href="prost_por.html" class="active">Ruch prostoliniowy</a></li>
+			<li><a href="rzuty_main.html">Rzuty</a></li>
+			<li class="right"><a href="dok.html">Dokumentacja</a></li>	
+		</ul>
+		<br/>
+		
+		<ul class="nav-prost">
+			<li><a href="prost_main.html">Podstrona główna</a></li>
+			<li><a href="prost_por.html">Porównanie</a></li>
+			<li><a href="prost_sym.html" class="active">Symulacje</a></li>
+		</ul>
+	</nav>
+	
+	<section id="wstep">
+		<h3>Ruch prostoliniowy - symulacje</h3>
+		<p>Na tej podstronie przedstawię wykresy przemieszczenia, prędkości i przyspieszenia dla ruchów jednostajnych.</p>
+		<figure>
+			<img src="media/prost_sym1.png" alt="wykres"/>
+			<figcaption>Przykładowy wykres - droga w ruchu jednostajnie przyspieszonym.</figcaption>
+		</figure>
+	</section>	
+	<hr/>
+	
+	<section id="wybor">
+		<h2>&nbsp;</h2>	
+		<form id="wyborForm">
+			<p>Wybierz rodzaj ruchu:</p>
+			<select name="ruch" size="1" id="ruch">
+				<option value="0">Wybierz</option>
+				<option value="sp">Spoczynek</option>
+				<option value="j">Jednostajny</option>
+				<option value="jp">Jednostajnie przyspieszony</option>
+			</select>
+			<input type="button" value="wybierz" onclick="pokaz()" />
+		</form>
+	</section>
+	<hr/>
+	
+	<section id="symulacje">
+		<h2>&nbsp;</h2>
+		<span id="przemieszczenie" class="clearfix">
+		<canvas id="przemCanv" width="310" height="310">
+		</canvas><br/>
+		<button onclick="draw(ctx_x,0,1,0.05);">Rysuj</button>
+		</span>
+		
+		<span id = "predkosc" class="clearfix">
+		<canvas id="predCanv" width="310" height="310">
+		</canvas>
+		<button onclick="draw(ctx_v,0,1,1);">Rysuj</button>
+		</span>
+		
+		<span id = "przyspieszenie">
+		<canvas id="przysCanv" width="310" height="310">
+		</canvas><br/>
+		<button onclick="draw(ctx_a,0,0,100);">Rysuj</button>
+		</span>
+	</section><br/>
+	<hr/>
+	
+	<section id="zrodlo">
+		<h3>Źródła</h3>
+		<a href="https://pl.wikipedia.org/wiki/Ruch_jednostajny_prostoliniowy">Ruch jednostajny</a><br/>
+		<a href="https://pl.wikipedia.org/wiki/Ruch_jednostajnie_przyspieszony">Ruch jednostajnie przyspieszony</a><br/>
+		<a href="https://pl.wikipedia.org/wiki/Pr%C4%99dko%C5%9B%C4%87">Prędkość</a><br/>
+		<a href="https://pl.wikipedia.org/wiki/Przyspieszenie">Przyspieszenie</a><br/>
+		<a href="https://pl.wikipedia.org/wiki/Zryw">Zryw</a><br/>
+		<a href="https://pl.wikipedia.org/wiki/Udar_(fizyka)">Udar</a>
+	</section>
+	
+	<hr/>
+	<footer>
+		<p>by Maciej Domagalski</p>
+	</footer>
+</body>
+</html>
